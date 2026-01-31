@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             RoleAndAdminSeeder::class,
             PermissionSeeder::class,
             ShippingChargeSeeder::class,
+            PaymentGatewaySeeder::class,
         ]);
     }
 }

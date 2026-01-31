@@ -17,6 +17,7 @@ use App\Http\Controllers\Api\WishlistController;
 use App\Http\Controllers\Api\Admin\CouponController as AdminCouponController;
 use App\Http\Controllers\Api\CouponController as PublicCouponController;
 use App\Http\Controllers\Api\Admin\ShippingChargeController;
+use App\Http\Controllers\Api\Admin\PaymentGatewayController;
 
 /*
 |--------------------------------------------------------------------------
@@ -134,6 +135,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
         Route::post('/employees', [EmployeeController::class, 'store']);
         Route::put('/employees/{id}', [EmployeeController::class, 'update']);
         Route::delete('/employees/{id}', [EmployeeController::class, 'destroy']);
+
+        Route::get('/payment-gateways', [PaymentGatewayController::class, 'index']);
+        Route::post('/payment-gateways/{id}', [PaymentGatewayController::class, 'update']);
 
     });
 });
