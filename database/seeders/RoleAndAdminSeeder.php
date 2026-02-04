@@ -14,6 +14,7 @@ class RoleAndAdminSeeder extends Seeder
     {
         $superAdminRole = Role::create(['name' => 'super-admin']);
         $employeeRole = Role::create(['name' => 'employee']);
+        $adminRole = Role::create(['name' => 'admin']);
         $customerRole = Role::create(['name' => 'customer']);
 
         // Permission::create(['name' => 'manage products']);
@@ -21,6 +22,12 @@ class RoleAndAdminSeeder extends Seeder
         $admin = User::create([
             'name' => 'Md Enzamamul Haque Shiplu',
             'email' => 'shiplu2111@gmail.com',
+            'password' => Hash::make('password'),
+        ]);
+
+        $customer= User::create([
+            'name' => 'Customer User',
+            'email' => 'customer@example.com',
             'password' => Hash::make('password'),
         ]);
 

@@ -28,4 +28,8 @@ class Coupon extends Model
 
         return true;
     }
+    public function usages()
+    {
+        return $this->hasMany(CouponUsage::class);
+    }
 }

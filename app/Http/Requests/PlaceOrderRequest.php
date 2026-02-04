@@ -34,8 +34,13 @@ class PlaceOrderRequest extends FormRequest
             'items.*.product_variant_id' => 'nullable|exists:product_variants,id',
             'items.*.quantity' => 'required|integer|min:1',
 
-            // Payment
-            'payment_method' => 'required|in:cod,stripe,sslcommerz',
+           // Allow all gateways
+        'payment_method' => 'required|in:cod,sslcommerz,manual,bkash,nagad,rocket',
+
+        // Manual validation rules (Conditional)
+        'manual_method_id' => 'required_if:payment_method,manual|exists:manual_payment_methods,id',
+        'transaction_id' => 'required_if:payment_method,manual|string|max:50',
+        'payment_proof' => 'nullable|image|max:2048',
         ];
     }
 

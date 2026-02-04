@@ -10,48 +10,79 @@ class PermissionSeeder extends Seeder
     public function run()
     {
         $permissions = [
-            // User/Employee Management -
+            // 🏠 Dashboard Access
+            'dashboard.view',
+            'dashboard.analytics', // View revenue charts etc.
+
+            // 👥 User & Employee Management
             'employee.create',
             'employee.view',
             'employee.edit',
             'employee.delete',
 
-            // 2. Category Management -
+            'role.create',
+            'role.view',
+            'role.edit',
+            'role.delete',
+
+            // 👤 Customer Management (New)
+            'customer.view',
+            'customer.block',  // Block spam users
+            'customer.delete',
+
+            // 📦 Product Catalog
             'category.create',
             'category.view',
             'category.edit',
             'category.delete',
 
-            // 3. Brand Management -
             'brand.create',
             'brand.view',
             'brand.edit',
             'brand.delete',
 
-            // 4. Product Management -
             'product.create',
             'product.view',
             'product.edit',
             'product.delete',
 
-            // --- NEW PERMISSIONS START ---
+            // 🛒 Sales & Orders
+            'order.view',
+            'order.update', // Includes status updates
+            'order.delete',
 
-            // 5. Order Management -
-            'order.view',           // অর্ডার লিস্ট দেখার জন্য
-            'order.update_status',  // স্ট্যাটাস চেঞ্জ (Pending -> Delivered) করার জন্য
-            'order.delete',         // অর্ডার ডিলিট (Only Super Admin)
+            'shipping.create',
+            'shipping.view',
+            'shipping.edit',
+            'shipping.delete',
 
-            // 6. Coupon Management -
+            // 🎫 Marketing
             'coupon.create',
             'coupon.view',
             'coupon.edit',
             'coupon.delete',
 
-            // 7. Shipping Charge Management -
-            'shipping.create',
-            'shipping.view',
-            'shipping.edit',
-            'shipping.delete',
+            // ⭐ Review Management
+            'review.list',
+            'review.approve', // Approve/Reject logic
+            'review.delete',
+
+            // 📊 Reports & Export
+            'report.view',   // Access report page
+            'report.export', // Download CSV
+
+            // 🖼️ CMS & Frontend Content
+            'slider.create',
+            'slider.view',
+            'slider.edit',
+            'slider.delete',
+
+            'page.create',
+            'page.view',
+            'page.edit',
+            'page.delete',
+
+            'setting.manage', // Manage Logo, Phone, Social Links
         ];
 
         foreach ($permissions as $permission) {

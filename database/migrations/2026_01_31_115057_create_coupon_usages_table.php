@@ -12,7 +12,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('coupon_id')->constrained()->onDelete('cascade');
+
             $table->foreignId('order_id')->constrained()->onDelete('cascade');
+            $table->decimal('discount_amount', 10, 2)->comment('Actual amount discounted');
             $table->timestamps();
         });
     }
